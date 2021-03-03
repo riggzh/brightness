@@ -46,7 +46,7 @@ extern void DisplayServicesBrightnessChanged(CGDirectDisplayID id,
 extern int DisplayServicesGetLinearBrightness(CGDirectDisplayID id,
                                         float *brightness)
   __attribute__((weak_import));
-extern int DisplayServicesSetLinearBrightness(CGDirectDisplayID id,
+extern int DisplayServicesResetAmbitent(CGDirectDisplayID id,
                                         float brightness)
   __attribute__((weak_import));
 
@@ -123,8 +123,8 @@ static bool setBrightness(CGDirectDisplayID dspy, io_service_t service,
                              float brightness) {
   /* 1. Try DisplayServices set SPI - more likely to work on
      recent macOS */
-  if ((DisplayServicesSetLinearBrightness != NULL) &&
-      !DisplayServicesSetLinearBrightness(dspy, brightness)) {
+  if ((DisplayServicesResetAmbitent != NULL) &&
+      !DisplayServicesResetAmbitent(dspy, brightness)) {
     return true;
   }
 
