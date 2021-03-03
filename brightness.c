@@ -43,10 +43,10 @@ extern void DisplayServicesBrightnessChanged(CGDirectDisplayID id,
   __attribute__((weak_import));
 
 /* Below functions are necessary on Apple Silicon/macOS 11. */
-extern int DisplayServicesGetBrightness(CGDirectDisplayID id,
+extern int DisplayServicesGetLinearBrightness(CGDirectDisplayID id,
                                         float *brightness)
   __attribute__((weak_import));
-extern int DisplayServicesSetBrightness(CGDirectDisplayID id,
+extern int DisplayServicesSetLinearBrightness(CGDirectDisplayID id,
                                         float brightness)
   __attribute__((weak_import));
 
