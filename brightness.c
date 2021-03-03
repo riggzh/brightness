@@ -123,8 +123,8 @@ static bool setBrightness(CGDirectDisplayID dspy, io_service_t service,
                              float brightness) {
   /* 1. Try DisplayServices set SPI - more likely to work on
      recent macOS */
-  if ((DisplayServicesSetBrightness != NULL) &&
-      !DisplayServicesSetBrightness(dspy, brightness)) {
+  if ((DisplayServicesSetLinearBrightness != NULL) &&
+      !DisplayServicesSetLinearBrightness(dspy, brightness)) {
     return true;
   }
 
@@ -163,8 +163,8 @@ static bool getBrightness(CGDirectDisplayID dspy, io_service_t service,
                           float *brightness) {
   /* 1. Try DisplayServices get SPI - more likely to work on recent
      macOS */
-  if ((DisplayServicesGetBrightness != NULL) &&
-      !DisplayServicesGetBrightness(dspy, brightness)) {
+  if ((DisplayServicesGetLinearBrightness != NULL) &&
+      !DisplayServicesGetLinearBrightness(dspy, brightness)) {
     return true;
   }
 
